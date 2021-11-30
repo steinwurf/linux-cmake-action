@@ -4,6 +4,7 @@ on:
     inputs:
       extra_resolve_options:
         description: "Extra Resolve Options"
+        type: string
         required: false
 env:
   EXTRA_RESOLVE_OPTIONS: ${{ github.event.inputs.resolve_options }}
