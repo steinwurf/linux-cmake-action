@@ -10,6 +10,7 @@ env:
   EXTRA_RESOLVE_OPTIONS: ${{ github.event.inputs.extra_resolve_options }}
 jobs:
   docker_builds:
+    timeout-minutes: 45
     strategy:
       fail-fast: false
       matrix:
