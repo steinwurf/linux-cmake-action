@@ -8,6 +8,11 @@ Latest
 ------
 * tbd
 
+4.2.0
+-----
+* Minor: Added optional parameter to specify if the tests should be run with
+         CTest
+
 4.1.0
 -----
 * Minor: Added support for preparation commands.
