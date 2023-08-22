@@ -1,14 +1,21 @@
 name: Linux CMake
 'on':
-  workflow_dispatch:
+  workflow_call:
     inputs:
-      extra_resolve_options:
-        description: Extra Resolve Options
+      preparation_commands:
+        description: "Commands to run to prepare the build"
         required: false
-  push:
-    branches:
-    - master
-  pull_request:
+        type: string
+        default: ''
+      extra_resolve_options:
+        description: "Extra Resolve Options"
+        type: string
+        required: false
+      run_test:
+        description: "Whether to invoke CTest"
+        required: false
+        type: string
+        default: 'false'
 env:
   EXTRA_RESOLVE_OPTIONS: ${{ github.event.inputs.extra_resolve_options }}
 jobs:
