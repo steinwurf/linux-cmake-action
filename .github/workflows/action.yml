@@ -59,3 +59,9 @@ jobs:
         if: ${{ inputs.run_test == 'true' }}
         working-directory: ${{github.workspace}}/build
         run: ctest
+
+# Cancel previous in-progress when pushing: https://stackoverflow.com/a/72408109
+concurrency:
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref || github.run_id }}
+  cancel-in-progress: true
