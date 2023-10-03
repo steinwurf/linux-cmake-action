@@ -11,11 +11,6 @@ name: Linux CMake
         description: "Extra Resolve Options"
         type: string
         required: false
-      run_test:
-        description: "Whether to invoke CTest"
-        required: false
-        type: string
-        default: 'false'
 env:
   EXTRA_RESOLVE_OPTIONS: ${{ github.event.inputs.extra_resolve_options }}
 jobs:
@@ -25,10 +20,10 @@ jobs:
       fail-fast: false
       matrix:
         config:
-        - container: ghcr.io/steinwurf/cmake-3.12-gcc:1.0.0
-          name: Cmake 3.12.4 (GCC)
-        - container: ghcr.io/steinwurf/cmake-3.12-clang:1.0.0
-          name: Cmake 3.12.4 (Clang)
+        - container: ghcr.io/steinwurf/cmake-3.18.4-gcc:2.0.0
+          name: Cmake 3.18.4 (GCC)
+        - container: ghcr.io/steinwurf/cmake-3.18.4-clang:2.0.0
+          name: Cmake 3.18.4 (Clang)
     runs-on:
     - self-hosted
     - docker
@@ -60,6 +55,5 @@ jobs:
       working-directory: ${{github.workspace}}/build
       run: cmake --build .
     - name: CTest
-      if: ${{ inputs.run_test == 'true' }}
       working-directory: ${{github.workspace}}/build
       run: ctest
