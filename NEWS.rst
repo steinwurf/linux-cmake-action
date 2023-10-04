@@ -6,7 +6,7 @@ every change, see the Git log.
 
 Latest
 ------
-* tbd
+* Major: Always run CTest and parallel builds.
 
 4.2.0
 -----
